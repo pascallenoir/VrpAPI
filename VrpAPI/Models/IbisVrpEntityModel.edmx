@@ -1,0 +1,1252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IBISVRPModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Nom_Utilisateur" Type="nvarchar(max)" />
+          <Property Name="Prenom_Utilisateur" Type="nvarchar(max)" />
+          <Property Name="Statut_Utilisateur" Type="nvarchar(max)" />
+          <Property Name="Photo_Utilisateur" Type="varbinary(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BANQUE_VRP">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+          </Key>
+          <Property Name="CODE_VRP" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="NOM_VRP" Type="varchar" MaxLength="35" />
+          <Property Name="PRENOM_VRP" Type="varchar" MaxLength="35" />
+          <Property Name="E_MAIL_VRP" Type="varchar" MaxLength="120" />
+          <Property Name="TEL1_VRP" Type="varchar" MaxLength="16" />
+          <Property Name="TEL2_VRP" Type="varchar" MaxLength="16" />
+          <Property Name="ADR1_VRP" Type="varchar" MaxLength="35" />
+          <Property Name="ADR2_VRP" Type="varchar" MaxLength="35" />
+          <Property Name="DATE_CREATION" Type="datetime" />
+          <Property Name="DATE_MODIF" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ETS_BANCAIRE">
+          <Key>
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+          </Key>
+          <Property Name="BANQUE_CODE_BCEAO" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="PAYS_CODE" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="BANQUE_NOM" Type="varchar" MaxLength="120" />
+          <Property Name="BANQUE_SIGLE" Type="varchar" MaxLength="25" />
+          <Property Name="BANQUE_DATE_SUSP" Type="datetime" />
+          <Property Name="BANQUE_CLE_BCEAO" Type="char" MaxLength="1" />
+          <Property Name="BANQUE_CODE_REMET" Type="char" MaxLength="4" />
+          <Property Name="CODE_FORMULE" Type="char" MaxLength="2" />
+          <Property Name="BANQUE_SDEVMT" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="BANQUE_B_F" Type="char" MaxLength="1" />
+          <Property Name="ETCIV_MATRICULE" Type="char" MaxLength="6" />
+          <Property Name="DATE_CREATION" Type="datetime" />
+          <Property Name="DATE_MODIF" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ORGAN_ETS_BANCAIRE">
+          <Key>
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="BANQUE_CODE_BCEAO" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CODE_ORG" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="NOM" Type="varchar" MaxLength="35" />
+          <Property Name="PRENOMS" Type="varchar" MaxLength="35" />
+          <Property Name="ETCIV_MATRICULE" Type="char" MaxLength="6" />
+          <Property Name="E_MAIL1" Type="varchar" MaxLength="120" />
+          <Property Name="E_MAIL2" Type="varchar" MaxLength="120" />
+          <Property Name="TEL1" Type="varchar" MaxLength="16" />
+          <Property Name="TEL2" Type="varchar" MaxLength="16" />
+          <Property Name="ADR_POST1" Type="varchar" MaxLength="35" />
+          <Property Name="ADR_POST2" Type="varchar" MaxLength="35" />
+          <Property Name="ADR_GEO1" Type="varchar" MaxLength="35" />
+          <Property Name="ADR_GEO2" Type="varchar" MaxLength="35" />
+          <Property Name="DATE_CREATION" Type="datetime" />
+          <Property Name="DATE_MODIF" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ORGANIGRAMME">
+          <Key>
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_ORG" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="LIBELLE" Type="varchar" MaxLength="60" />
+          <Property Name="NIVEAU" Type="char" MaxLength="1" />
+          <Property Name="HIERARCHIE" Type="char" MaxLength="5" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="PAYS_NATIONAL">
+          <Key>
+            <PropertyRef Name="PAYS_CODE" />
+          </Key>
+          <Property Name="PAYS_CODE" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="PAYS_NOM" Type="varchar" MaxLength="35" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'IBISVRP.dbo.tmp_vrprelationets' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="tmp_vrprelationets">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_VRP" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="BANQUE_CODE_BCEAO" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CODE_ORG" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CODE_TYPE_RELATION" Type="char" MaxLength="5" />
+          <Property Name="OBSERVATION_REL" Type="text" />
+        </EntityType>
+        <EntityType Name="TYPE_RELATION_VRP">
+          <Key>
+            <PropertyRef Name="CODE_TYPE_RELATION" />
+          </Key>
+          <Property Name="CODE_TYPE_RELATION" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="LIBELLE_RELATION" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="datetime" />
+          <Property Name="DATE_MODIF" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VRP_RELATION_ETS">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_VRP" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="BANQUE_CODE_BCEAO" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CODE_ORG" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CODE_TYPE_RELATION" Type="char" MaxLength="5" />
+          <Property Name="OBSERVATION_REL" Type="text" />
+        </EntityType>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetRoles1">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserRoles_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANQUE_VRP_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="BANQUE_VRP" Type="Self.BANQUE_VRP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANQUE_VRP">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETS_BANCAIRE_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ETS_BANCAIRE">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETS_BANCAIRE_PAYS_NATIONAL">
+          <End Role="PAYS_NATIONAL" Type="Self.PAYS_NATIONAL" Multiplicity="1" />
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYS_NATIONAL">
+              <PropertyRef Name="PAYS_CODE" />
+            </Principal>
+            <Dependent Role="ETS_BANCAIRE">
+              <PropertyRef Name="PAYS_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE">
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="1" />
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            </Principal>
+            <Dependent Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME">
+          <End Role="ORGANIGRAMME" Type="Self.ORGANIGRAMME" Multiplicity="1" />
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIGRAMME">
+              <PropertyRef Name="CODE_ORG" />
+            </Principal>
+            <Dependent Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="CODE_ORG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGANIGRAMME_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ORGANIGRAMME" Type="Self.ORGANIGRAMME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORGANIGRAMME">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYS_NATIONAL_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PAYS_NATIONAL" Type="Self.PAYS_NATIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PAYS_NATIONAL">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TYPE_RELATION_VRP_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="TYPE_RELATION_VRP" Type="Self.TYPE_RELATION_VRP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TYPE_RELATION_VRP">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_BANQUE_VRP">
+          <End Role="BANQUE_VRP" Type="Self.BANQUE_VRP" Multiplicity="1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANQUE_VRP">
+              <PropertyRef Name="CODE_VRP" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="CODE_VRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE">
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+              <PropertyRef Name="CODE_ORG" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+              <PropertyRef Name="CODE_ORG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_TYPE_RELATION_VRP">
+          <End Role="TYPE_RELATION_VRP" Type="Self.TYPE_RELATION_VRP" Multiplicity="0..1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_RELATION_VRP">
+              <PropertyRef Name="CODE_TYPE_RELATION" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="CODE_TYPE_RELATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="JoinTables" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LsBanqParPays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PaysCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LsPaysVrpInt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BanqueCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="PaysCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RelationVrp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeVrp" Type="nvarchar" Mode="In" />
+          <Parameter Name="BanqueCodeBceao" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VrpintervBank" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CodeVrp" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="IBISVRPModel1StoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANQUE_VRP" EntityType="Self.BANQUE_VRP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ETS_BANCAIRE" EntityType="Self.ETS_BANCAIRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORGAN_ETS_BANCAIRE" EntityType="Self.ORGAN_ETS_BANCAIRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORGANIGRAMME" EntityType="Self.ORGANIGRAMME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYS_NATIONAL" EntityType="Self.PAYS_NATIONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_RELATION_VRP" EntityType="Self.TYPE_RELATION_VRP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VRP_RELATION_ETS" EntityType="Self.VRP_RELATION_ETS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tmp_vrprelationets" EntityType="Self.tmp_vrprelationets" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tmp_vrprelationets].[CODE_VRP] AS [CODE_VRP], 
+    [tmp_vrprelationets].[BANQUE_CODE_BCEAO] AS [BANQUE_CODE_BCEAO], 
+    [tmp_vrprelationets].[CODE_ORG] AS [CODE_ORG], 
+    [tmp_vrprelationets].[CODE_TYPE_RELATION] AS [CODE_TYPE_RELATION], 
+    [tmp_vrprelationets].[OBSERVATION_REL] AS [OBSERVATION_REL]
+    FROM [dbo].[tmp_vrprelationets] AS [tmp_vrprelationets]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers1" Association="Self.FK_AspNetUserClaims_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers1" Association="Self.FK_AspNetUserLogins_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles1" Association="Self.FK_AspNetUserRoles_AspNetRoles1">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers1" Association="Self.FK_AspNetUserRoles_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANQUE_VRP_AspNetUsers1" Association="Self.FK_BANQUE_VRP_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="BANQUE_VRP" EntitySet="BANQUE_VRP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETS_BANCAIRE_AspNetUsers1" Association="Self.FK_ETS_BANCAIRE_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETS_BANCAIRE_PAYS_NATIONAL" Association="Self.FK_ETS_BANCAIRE_PAYS_NATIONAL">
+            <End Role="PAYS_NATIONAL" EntitySet="PAYS_NATIONAL" />
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE" Association="Self.FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE">
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME" Association="Self.FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME">
+            <End Role="ORGANIGRAMME" EntitySet="ORGANIGRAMME" />
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGANIGRAMME_AspNetUsers" Association="Self.FK_ORGANIGRAMME_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ORGANIGRAMME" EntitySet="ORGANIGRAMME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYS_NATIONAL_AspNetUsers" Association="Self.FK_PAYS_NATIONAL_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PAYS_NATIONAL" EntitySet="PAYS_NATIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TYPE_RELATION_VRP_AspNetUsers1" Association="Self.FK_TYPE_RELATION_VRP_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TYPE_RELATION_VRP" EntitySet="TYPE_RELATION_VRP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_BANQUE_VRP" Association="Self.FK_VRP_RELATION_ETS_BANQUE_VRP">
+            <End Role="BANQUE_VRP" EntitySet="BANQUE_VRP" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE" Association="Self.FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE">
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_TYPE_RELATION_VRP" Association="Self.FK_VRP_RELATION_ETS_TYPE_RELATION_VRP">
+            <End Role="TYPE_RELATION_VRP" EntitySet="TYPE_RELATION_VRP" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IBISVRPModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserClaims_AspNetUsers1" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUserLogins_AspNetUsers1" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom_Utilisateur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom_Utilisateur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Statut_Utilisateur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo_Utilisateur" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_AspNetUserClaims_AspNetUsers1" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_AspNetUserLogins_AspNetUsers1" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="BANQUE_VRP" Relationship="Self.FK_BANQUE_VRP_AspNetUsers1" FromRole="AspNetUsers" ToRole="BANQUE_VRP" />
+          <NavigationProperty Name="ETS_BANCAIRE" Relationship="Self.FK_ETS_BANCAIRE_AspNetUsers1" FromRole="AspNetUsers" ToRole="ETS_BANCAIRE" />
+          <NavigationProperty Name="ORGANIGRAMMEs" Relationship="Self.FK_ORGANIGRAMME_AspNetUsers" FromRole="AspNetUsers" ToRole="ORGANIGRAMME" />
+          <NavigationProperty Name="PAYS_NATIONAL" Relationship="Self.FK_PAYS_NATIONAL_AspNetUsers" FromRole="AspNetUsers" ToRole="PAYS_NATIONAL" />
+          <NavigationProperty Name="TYPE_RELATION_VRP" Relationship="Self.FK_TYPE_RELATION_VRP_AspNetUsers1" FromRole="AspNetUsers" ToRole="TYPE_RELATION_VRP" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BANQUE_VRP">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+          </Key>
+          <Property Name="CODE_VRP" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOM_VRP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM_VRP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="E_MAIL_VRP" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="TEL1_VRP" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TEL2_VRP" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ADR1_VRP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ADR2_VRP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MODIF" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_BANQUE_VRP_AspNetUsers1" FromRole="BANQUE_VRP" ToRole="AspNetUsers" />
+          <NavigationProperty Name="VRP_RELATION_ETS" Relationship="Self.FK_VRP_RELATION_ETS_BANQUE_VRP" FromRole="BANQUE_VRP" ToRole="VRP_RELATION_ETS" />
+        </EntityType>
+        <EntityType Name="ETS_BANCAIRE">
+          <Key>
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+          </Key>
+          <Property Name="BANQUE_CODE_BCEAO" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PAYS_CODE" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BANQUE_NOM" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="BANQUE_SIGLE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="BANQUE_DATE_SUSP" Type="DateTime" Precision="3" />
+          <Property Name="BANQUE_CLE_BCEAO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BANQUE_CODE_REMET" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="CODE_FORMULE" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="BANQUE_SDEVMT" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="BANQUE_B_F" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ETCIV_MATRICULE" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MODIF" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_ETS_BANCAIRE_AspNetUsers1" FromRole="ETS_BANCAIRE" ToRole="AspNetUsers" />
+          <NavigationProperty Name="PAYS_NATIONAL" Relationship="Self.FK_ETS_BANCAIRE_PAYS_NATIONAL" FromRole="ETS_BANCAIRE" ToRole="PAYS_NATIONAL" />
+          <NavigationProperty Name="ORGAN_ETS_BANCAIRE" Relationship="Self.FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE" FromRole="ETS_BANCAIRE" ToRole="ORGAN_ETS_BANCAIRE" />
+        </EntityType>
+        <EntityType Name="ORGAN_ETS_BANCAIRE">
+          <Key>
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="BANQUE_CODE_BCEAO" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_ORG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOMS" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ETCIV_MATRICULE" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="E_MAIL1" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="E_MAIL2" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="TEL1" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="TEL2" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="ADR_POST1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ADR_POST2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ADR_GEO1" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="ADR_GEO2" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MODIF" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ETS_BANCAIRE" Relationship="Self.FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE" FromRole="ORGAN_ETS_BANCAIRE" ToRole="ETS_BANCAIRE" />
+          <NavigationProperty Name="ORGANIGRAMME" Relationship="Self.FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME" FromRole="ORGAN_ETS_BANCAIRE" ToRole="ORGANIGRAMME" />
+          <NavigationProperty Name="VRP_RELATION_ETS" Relationship="Self.FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE" FromRole="ORGAN_ETS_BANCAIRE" ToRole="VRP_RELATION_ETS" />
+        </EntityType>
+        <EntityType Name="ORGANIGRAMME">
+          <Key>
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_ORG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LIBELLE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NIVEAU" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="HIERARCHIE" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_ORGANIGRAMME_AspNetUsers" FromRole="ORGANIGRAMME" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ORGAN_ETS_BANCAIRE" Relationship="Self.FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME" FromRole="ORGANIGRAMME" ToRole="ORGAN_ETS_BANCAIRE" />
+        </EntityType>
+        <EntityType Name="PAYS_NATIONAL">
+          <Key>
+            <PropertyRef Name="PAYS_CODE" />
+          </Key>
+          <Property Name="PAYS_CODE" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PAYS_NOM" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PAYS_NATIONAL_AspNetUsers" FromRole="PAYS_NATIONAL" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ETS_BANCAIRE" Relationship="Self.FK_ETS_BANCAIRE_PAYS_NATIONAL" FromRole="PAYS_NATIONAL" ToRole="ETS_BANCAIRE" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TYPE_RELATION_VRP">
+          <Key>
+            <PropertyRef Name="CODE_TYPE_RELATION" />
+          </Key>
+          <Property Name="CODE_TYPE_RELATION" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LIBELLE_RELATION" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Precision="3" />
+          <Property Name="DATE_MODIF" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_TYPE_RELATION_VRP_AspNetUsers1" FromRole="TYPE_RELATION_VRP" ToRole="AspNetUsers" />
+          <NavigationProperty Name="VRP_RELATION_ETS" Relationship="Self.FK_VRP_RELATION_ETS_TYPE_RELATION_VRP" FromRole="TYPE_RELATION_VRP" ToRole="VRP_RELATION_ETS" />
+        </EntityType>
+        <EntityType Name="VRP_RELATION_ETS">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_VRP" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BANQUE_CODE_BCEAO" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_ORG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_TYPE_RELATION" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="OBSERVATION_REL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BANQUE_VRP" Relationship="Self.FK_VRP_RELATION_ETS_BANQUE_VRP" FromRole="VRP_RELATION_ETS" ToRole="BANQUE_VRP" />
+          <NavigationProperty Name="ORGAN_ETS_BANCAIRE" Relationship="Self.FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE" FromRole="VRP_RELATION_ETS" ToRole="ORGAN_ETS_BANCAIRE" />
+          <NavigationProperty Name="TYPE_RELATION_VRP" Relationship="Self.FK_VRP_RELATION_ETS_TYPE_RELATION_VRP" FromRole="VRP_RELATION_ETS" ToRole="TYPE_RELATION_VRP" />
+        </EntityType>
+        <EntityType Name="tmp_vrprelationets">
+          <Key>
+            <PropertyRef Name="CODE_VRP" />
+            <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            <PropertyRef Name="CODE_ORG" />
+          </Key>
+          <Property Name="CODE_VRP" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BANQUE_CODE_BCEAO" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_ORG" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_TYPE_RELATION" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="OBSERVATION_REL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUserClaims_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUserLogins_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BANQUE_VRP_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="BANQUE_VRP" Type="Self.BANQUE_VRP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BANQUE_VRP">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETS_BANCAIRE_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ETS_BANCAIRE">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGANIGRAMME_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="ORGANIGRAMME" Type="Self.ORGANIGRAMME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORGANIGRAMME">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAYS_NATIONAL_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="PAYS_NATIONAL" Type="Self.PAYS_NATIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PAYS_NATIONAL">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TYPE_RELATION_VRP_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="TYPE_RELATION_VRP" Type="Self.TYPE_RELATION_VRP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TYPE_RELATION_VRP">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_BANQUE_VRP">
+          <End Role="BANQUE_VRP" Type="Self.BANQUE_VRP" Multiplicity="1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BANQUE_VRP">
+              <PropertyRef Name="CODE_VRP" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="CODE_VRP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETS_BANCAIRE_PAYS_NATIONAL">
+          <End Role="PAYS_NATIONAL" Type="Self.PAYS_NATIONAL" Multiplicity="1" />
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAYS_NATIONAL">
+              <PropertyRef Name="PAYS_CODE" />
+            </Principal>
+            <Dependent Role="ETS_BANCAIRE">
+              <PropertyRef Name="PAYS_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE">
+          <End Role="ETS_BANCAIRE" Type="Self.ETS_BANCAIRE" Multiplicity="1" />
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            </Principal>
+            <Dependent Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME">
+          <End Role="ORGANIGRAMME" Type="Self.ORGANIGRAMME" Multiplicity="1" />
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGANIGRAMME">
+              <PropertyRef Name="CODE_ORG" />
+            </Principal>
+            <Dependent Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="CODE_ORG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE">
+          <End Role="ORGAN_ETS_BANCAIRE" Type="Self.ORGAN_ETS_BANCAIRE" Multiplicity="1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORGAN_ETS_BANCAIRE">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+              <PropertyRef Name="CODE_ORG" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="BANQUE_CODE_BCEAO" />
+              <PropertyRef Name="CODE_ORG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VRP_RELATION_ETS_TYPE_RELATION_VRP">
+          <End Role="TYPE_RELATION_VRP" Type="Self.TYPE_RELATION_VRP" Multiplicity="0..1" />
+          <End Role="VRP_RELATION_ETS" Type="Self.VRP_RELATION_ETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_RELATION_VRP">
+              <PropertyRef Name="CODE_TYPE_RELATION" />
+            </Principal>
+            <Dependent Role="VRP_RELATION_ETS">
+              <PropertyRef Name="CODE_TYPE_RELATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="IBISVRPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BANQUE_VRP" EntityType="Self.BANQUE_VRP" />
+          <EntitySet Name="ETS_BANCAIRE" EntityType="Self.ETS_BANCAIRE" />
+          <EntitySet Name="ORGAN_ETS_BANCAIRE" EntityType="Self.ORGAN_ETS_BANCAIRE" />
+          <EntitySet Name="ORGANIGRAMMEs" EntityType="Self.ORGANIGRAMME" />
+          <EntitySet Name="PAYS_NATIONAL" EntityType="Self.PAYS_NATIONAL" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TYPE_RELATION_VRP" EntityType="Self.TYPE_RELATION_VRP" />
+          <EntitySet Name="VRP_RELATION_ETS" EntityType="Self.VRP_RELATION_ETS" />
+          <EntitySet Name="tmp_vrprelationets" EntityType="Self.tmp_vrprelationets" />
+          <AssociationSet Name="FK_AspNetUserClaims_AspNetUsers1" Association="Self.FK_AspNetUserClaims_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUserLogins_AspNetUsers1" Association="Self.FK_AspNetUserLogins_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BANQUE_VRP_AspNetUsers1" Association="Self.FK_BANQUE_VRP_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="BANQUE_VRP" EntitySet="BANQUE_VRP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETS_BANCAIRE_AspNetUsers1" Association="Self.FK_ETS_BANCAIRE_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGANIGRAMME_AspNetUsers" Association="Self.FK_ORGANIGRAMME_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ORGANIGRAMME" EntitySet="ORGANIGRAMMEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAYS_NATIONAL_AspNetUsers" Association="Self.FK_PAYS_NATIONAL_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PAYS_NATIONAL" EntitySet="PAYS_NATIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TYPE_RELATION_VRP_AspNetUsers1" Association="Self.FK_TYPE_RELATION_VRP_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TYPE_RELATION_VRP" EntitySet="TYPE_RELATION_VRP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_BANQUE_VRP" Association="Self.FK_VRP_RELATION_ETS_BANQUE_VRP">
+            <End Role="BANQUE_VRP" EntitySet="BANQUE_VRP" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETS_BANCAIRE_PAYS_NATIONAL" Association="Self.FK_ETS_BANCAIRE_PAYS_NATIONAL">
+            <End Role="PAYS_NATIONAL" EntitySet="PAYS_NATIONAL" />
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE" Association="Self.FK_ORGAN_ETS_BANCAIRE_ETS_BANCAIRE">
+            <End Role="ETS_BANCAIRE" EntitySet="ETS_BANCAIRE" />
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME" Association="Self.FK_ORGAN_ETS_BANCAIRE_ORGANIGRAMME">
+            <End Role="ORGANIGRAMME" EntitySet="ORGANIGRAMMEs" />
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE" Association="Self.FK_VRP_RELATION_ETS_ORGAN_ETS_BANCAIRE">
+            <End Role="ORGAN_ETS_BANCAIRE" EntitySet="ORGAN_ETS_BANCAIRE" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VRP_RELATION_ETS_TYPE_RELATION_VRP" Association="Self.FK_VRP_RELATION_ETS_TYPE_RELATION_VRP">
+            <End Role="TYPE_RELATION_VRP" EntitySet="TYPE_RELATION_VRP" />
+            <End Role="VRP_RELATION_ETS" EntitySet="VRP_RELATION_ETS" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="JoinTables" ReturnType="Collection(IBISVRPModel1.JoinTables_Result)" />
+          <FunctionImport Name="LsBanqParPays" ReturnType="Collection(IBISVRPModel1.LsBanqParPays_Result)">
+            <Parameter Name="PaysCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LsPaysVrpInt" ReturnType="Collection(IBISVRPModel1.LsPaysVrpInt_Result)">
+            <Parameter Name="BanqueCode" Mode="In" Type="String" />
+            <Parameter Name="PaysCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RelationVrp" ReturnType="Collection(IBISVRPModel1.RelationVrp_Result)">
+            <Parameter Name="CodeVrp" Mode="In" Type="String" />
+            <Parameter Name="BanqueCodeBceao" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VrpintervBank" ReturnType="Collection(IBISVRPModel1.VrpintervBank_Result)">
+            <Parameter Name="CodeVrp" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="JoinTables_Result">
+          <Property Type="String" Name="CODE_VRP" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="NOM_VRP" Nullable="true" MaxLength="35" />
+          <Property Type="String" Name="BANQUE_CODE_BCEAO" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_NOM" Nullable="true" MaxLength="120" />
+        </ComplexType>
+        <ComplexType Name="LsBanqParPays_Result">
+          <Property Type="String" Name="PAYS_CODE" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="PAYS_NOM" Nullable="true" MaxLength="35" />
+          <Property Type="String" Name="BANQUE_CODE_BCEAO" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_NOM" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="BANQUE_SIGLE" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="LsPaysVrpInt_Result">
+          <Property Type="String" Name="CODE_VRP" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="NOM_VRP" Nullable="true" MaxLength="35" />
+          <Property Type="String" Name="PRENOM_VRP" Nullable="true" MaxLength="35" />
+          <Property Type="String" Name="E_MAIL_VRP" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="TEL1_VRP" Nullable="true" MaxLength="16" />
+          <Property Type="String" Name="BANQUE_CODE_BCEAO" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_NOM" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="BANQUE_SIGLE" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="PAYS_CODE" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="PAYS_NOM" Nullable="true" MaxLength="35" />
+        </ComplexType>
+        <ComplexType Name="RelationVrp_Result">
+          <Property Type="String" Name="CODE_VRP" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="NOM_VRP" Nullable="true" MaxLength="35" />
+          <Property Type="String" Name="BANQUE_CODE_BCEAO" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_NOM" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="CODE_ORG" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="LIBELLE" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="CODE_TYPE_RELATION" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="LIBELLE_RELATION" Nullable="false" MaxLength="120" />
+          <Property Type="String" Name="OBSERVATION_REL" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="VrpintervBank_Result">
+          <Property Type="String" Name="CODE_VRP" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_CODE_BCEAO" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="BANQUE_NOM" Nullable="true" MaxLength="120" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IBISVRPModel1StoreContainer" CdmEntityContainer="IBISVRPEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="IBISVRPModel1.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="IBISVRPModel1.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="IBISVRPModel1.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="IBISVRPModel1.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="IBISVRPModel1.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom_Utilisateur" ColumnName="Nom_Utilisateur" />
+                <ScalarProperty Name="Prenom_Utilisateur" ColumnName="Prenom_Utilisateur" />
+                <ScalarProperty Name="Statut_Utilisateur" ColumnName="Statut_Utilisateur" />
+                <ScalarProperty Name="Photo_Utilisateur" ColumnName="Photo_Utilisateur" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANQUE_VRP">
+            <EntityTypeMapping TypeName="IBISVRPModel1.BANQUE_VRP">
+              <MappingFragment StoreEntitySet="BANQUE_VRP">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="NOM_VRP" ColumnName="NOM_VRP" />
+                <ScalarProperty Name="PRENOM_VRP" ColumnName="PRENOM_VRP" />
+                <ScalarProperty Name="E_MAIL_VRP" ColumnName="E_MAIL_VRP" />
+                <ScalarProperty Name="TEL1_VRP" ColumnName="TEL1_VRP" />
+                <ScalarProperty Name="TEL2_VRP" ColumnName="TEL2_VRP" />
+                <ScalarProperty Name="ADR1_VRP" ColumnName="ADR1_VRP" />
+                <ScalarProperty Name="ADR2_VRP" ColumnName="ADR2_VRP" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="DATE_MODIF" ColumnName="DATE_MODIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ETS_BANCAIRE">
+            <EntityTypeMapping TypeName="IBISVRPModel1.ETS_BANCAIRE">
+              <MappingFragment StoreEntitySet="ETS_BANCAIRE">
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="PAYS_CODE" ColumnName="PAYS_CODE" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+                <ScalarProperty Name="BANQUE_SIGLE" ColumnName="BANQUE_SIGLE" />
+                <ScalarProperty Name="BANQUE_DATE_SUSP" ColumnName="BANQUE_DATE_SUSP" />
+                <ScalarProperty Name="BANQUE_CLE_BCEAO" ColumnName="BANQUE_CLE_BCEAO" />
+                <ScalarProperty Name="BANQUE_CODE_REMET" ColumnName="BANQUE_CODE_REMET" />
+                <ScalarProperty Name="CODE_FORMULE" ColumnName="CODE_FORMULE" />
+                <ScalarProperty Name="BANQUE_SDEVMT" ColumnName="BANQUE_SDEVMT" />
+                <ScalarProperty Name="BANQUE_B_F" ColumnName="BANQUE_B_F" />
+                <ScalarProperty Name="ETCIV_MATRICULE" ColumnName="ETCIV_MATRICULE" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="DATE_MODIF" ColumnName="DATE_MODIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGAN_ETS_BANCAIRE">
+            <EntityTypeMapping TypeName="IBISVRPModel1.ORGAN_ETS_BANCAIRE">
+              <MappingFragment StoreEntitySet="ORGAN_ETS_BANCAIRE">
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="CODE_ORG" ColumnName="CODE_ORG" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="PRENOMS" ColumnName="PRENOMS" />
+                <ScalarProperty Name="ETCIV_MATRICULE" ColumnName="ETCIV_MATRICULE" />
+                <ScalarProperty Name="E_MAIL1" ColumnName="E_MAIL1" />
+                <ScalarProperty Name="E_MAIL2" ColumnName="E_MAIL2" />
+                <ScalarProperty Name="TEL1" ColumnName="TEL1" />
+                <ScalarProperty Name="TEL2" ColumnName="TEL2" />
+                <ScalarProperty Name="ADR_POST1" ColumnName="ADR_POST1" />
+                <ScalarProperty Name="ADR_POST2" ColumnName="ADR_POST2" />
+                <ScalarProperty Name="ADR_GEO1" ColumnName="ADR_GEO1" />
+                <ScalarProperty Name="ADR_GEO2" ColumnName="ADR_GEO2" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="DATE_MODIF" ColumnName="DATE_MODIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIGRAMMEs">
+            <EntityTypeMapping TypeName="IBISVRPModel1.ORGANIGRAMME">
+              <MappingFragment StoreEntitySet="ORGANIGRAMME">
+                <ScalarProperty Name="CODE_ORG" ColumnName="CODE_ORG" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+                <ScalarProperty Name="NIVEAU" ColumnName="NIVEAU" />
+                <ScalarProperty Name="HIERARCHIE" ColumnName="HIERARCHIE" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYS_NATIONAL">
+            <EntityTypeMapping TypeName="IBISVRPModel1.PAYS_NATIONAL">
+              <MappingFragment StoreEntitySet="PAYS_NATIONAL">
+                <ScalarProperty Name="PAYS_CODE" ColumnName="PAYS_CODE" />
+                <ScalarProperty Name="PAYS_NOM" ColumnName="PAYS_NOM" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IBISVRPModel1.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_RELATION_VRP">
+            <EntityTypeMapping TypeName="IBISVRPModel1.TYPE_RELATION_VRP">
+              <MappingFragment StoreEntitySet="TYPE_RELATION_VRP">
+                <ScalarProperty Name="CODE_TYPE_RELATION" ColumnName="CODE_TYPE_RELATION" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LIBELLE_RELATION" ColumnName="LIBELLE_RELATION" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="DATE_MODIF" ColumnName="DATE_MODIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VRP_RELATION_ETS">
+            <EntityTypeMapping TypeName="IBISVRPModel1.VRP_RELATION_ETS">
+              <MappingFragment StoreEntitySet="VRP_RELATION_ETS">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="CODE_ORG" ColumnName="CODE_ORG" />
+                <ScalarProperty Name="CODE_TYPE_RELATION" ColumnName="CODE_TYPE_RELATION" />
+                <ScalarProperty Name="OBSERVATION_REL" ColumnName="OBSERVATION_REL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tmp_vrprelationets">
+            <EntityTypeMapping TypeName="IBISVRPModel1.tmp_vrprelationets">
+              <MappingFragment StoreEntitySet="tmp_vrprelationets">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="CODE_ORG" ColumnName="CODE_ORG" />
+                <ScalarProperty Name="CODE_TYPE_RELATION" ColumnName="CODE_TYPE_RELATION" />
+                <ScalarProperty Name="OBSERVATION_REL" ColumnName="OBSERVATION_REL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="IBISVRPModel1.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="JoinTables" FunctionName="IBISVRPModel1.Store.JoinTables">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBISVRPModel1.JoinTables_Result">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="NOM_VRP" ColumnName="NOM_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LsBanqParPays" FunctionName="IBISVRPModel1.Store.LsBanqParPays">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBISVRPModel1.LsBanqParPays_Result">
+                <ScalarProperty Name="PAYS_CODE" ColumnName="PAYS_CODE" />
+                <ScalarProperty Name="PAYS_NOM" ColumnName="PAYS_NOM" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+                <ScalarProperty Name="BANQUE_SIGLE" ColumnName="BANQUE_SIGLE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LsPaysVrpInt" FunctionName="IBISVRPModel1.Store.LsPaysVrpInt">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBISVRPModel1.LsPaysVrpInt_Result">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="NOM_VRP" ColumnName="NOM_VRP" />
+                <ScalarProperty Name="PRENOM_VRP" ColumnName="PRENOM_VRP" />
+                <ScalarProperty Name="E_MAIL_VRP" ColumnName="E_MAIL_VRP" />
+                <ScalarProperty Name="TEL1_VRP" ColumnName="TEL1_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+                <ScalarProperty Name="BANQUE_SIGLE" ColumnName="BANQUE_SIGLE" />
+                <ScalarProperty Name="PAYS_CODE" ColumnName="PAYS_CODE" />
+                <ScalarProperty Name="PAYS_NOM" ColumnName="PAYS_NOM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RelationVrp" FunctionName="IBISVRPModel1.Store.RelationVrp">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBISVRPModel1.RelationVrp_Result">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="NOM_VRP" ColumnName="NOM_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+                <ScalarProperty Name="CODE_ORG" ColumnName="CODE_ORG" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+                <ScalarProperty Name="CODE_TYPE_RELATION" ColumnName="CODE_TYPE_RELATION" />
+                <ScalarProperty Name="LIBELLE_RELATION" ColumnName="LIBELLE_RELATION" />
+                <ScalarProperty Name="OBSERVATION_REL" ColumnName="OBSERVATION_REL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VrpintervBank" FunctionName="IBISVRPModel1.Store.VrpintervBank">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IBISVRPModel1.VrpintervBank_Result">
+                <ScalarProperty Name="CODE_VRP" ColumnName="CODE_VRP" />
+                <ScalarProperty Name="BANQUE_CODE_BCEAO" ColumnName="BANQUE_CODE_BCEAO" />
+                <ScalarProperty Name="BANQUE_NOM" ColumnName="BANQUE_NOM" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
